@@ -6,3 +6,5 @@
 *.blg
 *.out
 *.xdv
+_Overview/report.log
+*.bcf
