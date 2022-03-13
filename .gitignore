@@ -1,0 +1,8 @@
+
+*.eps
+*.aux
+*.fls
+*.fdb_latexmk
+*.blg
+*.out
+*.xdv
