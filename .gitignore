@@ -8,3 +8,5 @@
 *.xdv
 _Overview/report.log
 *.bcf
+compar_paper/report.log
+compar_paper/report.synctex.gz
