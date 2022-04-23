@@ -10,3 +10,7 @@ _Overview/report.log
 *.bcf
 compar_paper/report.log
 compar_paper/report.synctex.gz
+NIR/main.log
+NIR/main.synctex.gz
+NIR/main.toc
+NIR/main.run.xml
