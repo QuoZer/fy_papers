@@ -1,4 +1,4 @@
-all: pdf pdf clean
+all: pdf pdf
 
 pdf:
 	pdflatex report.tex
