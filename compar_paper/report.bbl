@@ -1,0 +1,54 @@
+\begin{thebibliography}{1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{disparity_review}
+Brown, M., Burschka, D., Hager, G.: Advances in computational stereo. IEEE
+  Transactions on Pattern Analysis and Machine Intelligence  \textbf{25}(8),
+  993--1008 (2003). \doi{10.1109/TPAMI.2003.1217603}
+
+\bibitem{projections}
+Cłapa, J., Blasinski, H., Grabowski, K., Sekalski, P.: A fisheye distortion
+  correction algorithm optimized for hardware implementations. pp. 415--419 (06
+  2014). \doi{10.1109/MIXDES.2014.6872232}
+
+\bibitem{stereo_slam}
+Herath, D., Kodagoda, S., Dissanayake, G.: Stereo Vision Based SLAM Issues and
+  Solutions, p.~570 (06 2007). \doi{10.5772/5006}
+
+\bibitem{SGBM}
+Hirschmuller, H.: Accurate and efficient stereo processing by semi-global
+  matching and mutual information. In: 2005 IEEE Computer Society Conference on
+  Computer Vision and Pattern Recognition (CVPR'05). vol.~2, pp. 807--814 vol.
+  2 (2005). \doi{10.1109/CVPR.2005.56}
+
+\bibitem{opencv_model}
+Kannala, J., Brandt, S.: A generic camera model and calibration method for
+  conventional, wide-angle, and fish-eye lenses. IEEE Transactions on Pattern
+  Analysis and Machine Intelligence  \textbf{28}(8),  1335--1340 (2006).
+  \doi{10.1109/TPAMI.2006.153}
+
+\bibitem{mei}
+Mei, C., Rives, P.: Single view point omnidirectional camera calibration from
+  planar grids. In: Proceedings 2007 IEEE International Conference on Robotics
+  and Automation. pp. 3945--3950 (2007). \doi{10.1109/ROBOT.2007.364084}
+
+\bibitem{singlecamrev}
+Pan, B., Yu, L., Zhang, Q.: Review of single-camera stereo-digital image
+  correlation techniques for full-field 3d shape and deformation measurement.
+  Science China Technological Sciences  \textbf{61},  1--19 (09 2017).
+  \doi{10.1007/s11431-017-9090-x}
+
+\bibitem{scaramuzza}
+Scaramuzza, D., Martinelli, A., Siegwart, R.: A flexible technique for accurate
+  omnidirectional camera calibration and structure from motion. In: Fourth IEEE
+  International Conference on Computer Vision Systems (ICVS'06). pp. 45--45
+  (2006). \doi{10.1109/ICVS.2006.3}
+
+\bibitem{dome_tools}
+VR, Z.: A powerful, open-source plugin for the unity game engine that allows
+  anyone to convert their content to the fulldome planetarium format. (2021),
+  \url{https://zubr.co/work/dome-tools/}
+
+\end{thebibliography}
