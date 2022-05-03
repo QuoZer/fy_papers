@@ -1,0 +1,47 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\selectlanguage *{russian}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\centerline {{введение}}\vspace {0em}}{4}{section*.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\uppercase {введение}}{4}{section*.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1}Аналитический обзор систем стереозрения}{6}{section.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.1}Стереозрение}{6}{subsection.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2}Модели сверхширокоугольной камеры}{10}{subsection.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.3}Выводы по первому разделу}{14}{subsection.1.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2}Система стереозрения}{16}{section.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1}Описание системы стереозрения}{16}{subsection.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2}Алгоритм устранения искажений}{18}{subsection.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3}Выводы по второму разделу}{23}{subsection.2.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}Исследование точности калибровочных моделей сверхширокоугольных объективов}{25}{section.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1}Экспериментальное исследование моделей}{26}{subsection.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2}Выводы по третьему разделу}{32}{subsection.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}Экспериментальное исследование системы стереозрения}{33}{section.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\centerline {{Заключение}}\vspace {0em}}{34}{section*.23}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\uppercase {Заключение}}{34}{section*.23}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\centerline {{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}}\vspace {0em}}{35}{section*.24}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\uppercase {СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}}{35}{section*.24}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\centerline {{Приложение А}}}{38}{section*.25}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\uppercase {Приложение А}}{38}{section*.25}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\centerline {{Приложение Б}}}{39}{section*.27}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\uppercase {Приложение Б}}{39}{section*.27}%
