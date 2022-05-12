@@ -574,6 +574,38 @@
       \verb 10.1109/TPAMI.2006.153
       \endverb
     \endentry
+    \entry{mei}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=ad1bdfe5ac45e5a58d38518f9f6b42d8}{%
+           family={Mei},
+           familyi={M\bibinitperiod},
+           given={Christopher},
+           giveni={C\bibinitperiod}}}%
+        {{hash=a58e4df9819980734edc4cc9fe72732f}{%
+           family={Rives},
+           familyi={R\bibinitperiod},
+           given={Patrick},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{b993299e4df0579c1fc822a2906a515c}
+      \strng{fullhash}{b993299e4df0579c1fc822a2906a515c}
+      \strng{bibnamehash}{b993299e4df0579c1fc822a2906a515c}
+      \strng{authorbibnamehash}{b993299e4df0579c1fc822a2906a515c}
+      \strng{authornamehash}{b993299e4df0579c1fc822a2906a515c}
+      \strng{authorfullhash}{b993299e4df0579c1fc822a2906a515c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings 2007 IEEE International Conference on Robotics and Automation}
+      \field{title}{Single View Point Omnidirectional Camera Calibration from Planar Grids}
+      \field{year}{2007}
+      \field{pages}{3945\bibrangedash 3950}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1109/ROBOT.2007.364084
+      \endverb
+    \endentry
     \entry{geyer}{inproceedings}{}
       \name{author}{2}{}{%
         {{hash=a3966627342a0f28572c67b477b088db}{%
@@ -793,7 +825,6 @@
       \endverb
     \endentry
   \enddatalist
-  \missing{mei}
 \endrefsection
 \endinput
 

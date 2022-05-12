@@ -102,7 +102,20 @@ Camera Calibration Toolbox. Она связывает точки на изобр
 расстояние $\xi$, а затем в плоскость изображения камеры-обскуры, сдвинутой на $\frac{\alpha}{1-\alpha}$ относительно 
 центра второй сферы. Модель проекции представлена на рисунке \ref{pic:ds_model}. Таким образом радиальные искажения 
 можно описать всего двумя параметрами. Модель также интегрирована
-во многие популярные программы для калибровки камер (Basalt, Kalibr).
+во многие популярные программы для калибровки камер (Basalt, Kalibr). Записывается она следующим образом
+
+\begin{equation}	
+    d_1 = sqrt(x^2+y^2+z^2), \\
+\end{equation}
+\begin{equation}	
+    d_2 = sqrt(x^2+y^2+(\\xi*d_1+z)^2 ), \\
+\end{equation}
+\begin{equation}	
+    \pi(\mathbf{x}, \mathbf{i}) = \begin{pmatrix}f_x * \frac{x}{\alpha*d_2+(1-\alpha)(\xi*d_1+z)} \\
+                                                 f_y * \frac{y}{\alpha*d_2+(1-\alpha)(\xi*d_1+z)} \end{pmatrix}.
+    %\delta r = k_1\theta + k_2\theta^3 + k_3\theta^5 + k_4\theta^7 + ... + k_n\theta^{n+1}
+    \label{eqn:ds}
+\end{equation}
 
 \addimghere{double_sphere}{0.7}{Модель  двух сфер}{pic:ds_model}
 
