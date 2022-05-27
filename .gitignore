@@ -16,3 +16,9 @@ NIR/main.toc
 NIR/main.run.xml
 compar_paper/report.upb
 compar_paper/report.upa
+VKR/*.bbl
+VKR/*.log
+VKR/*.run.xml
+VKR/*.synctex.gz
+VKR/*.toc
+VKR/.vscode/
