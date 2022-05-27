@@ -9,8 +9,6 @@ texmk:
 	latexmk -xelatex \
 	-synctex=1 main.tex
 
-	pdflatex main.tex
-
 clean:
 	del -fr *.aux
 	del -fr *.bbl

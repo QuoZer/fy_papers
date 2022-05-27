@@ -25,25 +25,31 @@
 для получения результирующей проекции. Однако такой подход приведёт к возникновению дефектов из-за несовпадения % TODO:  скорее всего наврал. Надо проконсультироваться 
 частот дискретизации двух изображений.  Поэтому вместо этого алгоритм сначала выполняет обратное преобразование  для 
 каждого пикселя итогового изображения $\nu$, находя таким образом соответствующую ему точку в системе координат 
-камеры $({X_c, Y_c, Z_c})$ 
+камеры $({X_c, Y_c, Z_c})$:
+\vskip 12pt
 \begin{equation}
     \label{eq:uv_to_xyz}
     \left[\begin{matrix}x_c\\y_c\\z_c\\\end{matrix}\right] = \left[\begin{matrix} {u*z_c}/f \\  {v*z_c}/f \\ z_c \\\end{matrix}\right],
 \end{equation} 
-где  $f$ - фокусное расстояние. 
+\vskip 24pt
+
+\noindent где  $f$ - фокусное расстояние. 
 
 Набор таких точек формирует прямоугольную область $\nu_p$ с центром в точке $O_p$ и является плоскостью изображения
  виртуальной камеры-обскуры  с оптической осью $Z_p$. Поворот точек, входящих в $\nu_p$, с помощью матрицы вращения 
  $\bm{R}$ образует $\nu'_p$ и позволяет таким образом задать направление обзора и ориентацию виртуальной камеры. 
-\begin{equation}
-    \label{eq:sweeped}
-    \left[\begin{matrix}x'_p\\y'_p\\z'_p\\\end{matrix}\right] = \left[\begin{matrix}x_p\\y_p\\z_p\\\end{matrix}\right] \bm{R}.
-\end{equation}  
-\begin{equation}
-    \label{eq:R}
-    \bm{R} = \left[\begin{matrix}\cos{\alpha}&-\sin{\alpha}&0\\\sin{\alpha}&\cos{\alpha}&0\\0&0&1\\\end{matrix}\right]\left[\begin{matrix}1&0&0\\0&\cos{\beta}&\sin{\beta}\\0&-\sin{\beta}&\cos{\beta}\\\end{matrix}\right]\left[\begin{matrix}\cos{\gamma}&0&-\sin{\gamma}\\0&1&0\\\sin{\gamma}&0&\cos{\gamma}\\\end{matrix}\right],
-\end{equation} 
-где координаты с индексом $p$ -  координаты точек соответствующей плоскости $\nu$ в системе камеры, $\alpha, \beta, \gamma$ - углы Эйлера, управляющие  ориентацией виртуальной камеры-обскуры. % TODO: точно ли Эйлера? 
+\begin{eqseries}
+    \begin{equation}
+        \label{eq:sweeped}
+        \left[\begin{matrix}x'_p\\y'_p\\z'_p\\\end{matrix}\right] = \left[\begin{matrix}x_p\\y_p\\z_p\\\end{matrix}\right] \bm{R}.
+    \end{equation}  
+    \begin{equation}
+        \label{eq:R}
+        \bm{R} = \left[\begin{matrix}\cos{\alpha}&-\sin{\alpha}&0\\\sin{\alpha}&\cos{\alpha}&0\\0&0&1\\\end{matrix}\right]\left[\begin{matrix}1&0&0\\0&\cos{\beta}&\sin{\beta}\\0&-\sin{\beta}&\cos{\beta}\\\end{matrix}\right]\left[\begin{matrix}\cos{\gamma}&0&-\sin{\gamma}\\0&1&0\\\sin{\gamma}&0&\cos{\gamma}\\\end{matrix}\right],
+    \end{equation} 
+\end{eqseries}
+
+\noindent где координаты с индексом $p$ -  координаты точек соответствующей плоскости $\nu$ в системе камеры, $\alpha, \beta, \gamma$ - углы Эйлера, управляющие  ориентацией виртуальной камеры-обскуры. % TODO: точно ли Эйлера? 
 
 Тогда обратная fisheye-проекция точек из $\nu'_p$ позволяют получить область $\nu_i$ исходного изображения с искомыми пикселями. 
 Таким образом, зная как  проектируется каждая точка из $\nu$ в $\nu_i$, возможно  обратно перенести информацию о цвете на итоговое изображение.  
@@ -54,11 +60,13 @@
 \addimghere{scara_graph}{0.5}{Нахождение обратной проекции для используемой модели}{pic:scara_graph} 
 
 Для модели (\ref{eqn:scaramuzza}) обратная проекция записывается как 
+\vskip 12pt
 \begin{equation}
     \label{eq:back_scara}
     \left[\begin{matrix}u_i\\v_i\\\end{matrix}\right] = \left[\begin{matrix} \frac{x_c}{\lambda}  \\  \frac{y_c}{\lambda} \\\end{matrix}\right],
-\end{equation}  
-где $\lambda = \rho_c / \rho_i$ - масштабный коэффициент. 
+\end{equation} 
+\vskip 24pt
+\noindent где $\lambda = \rho_c / \rho_i$ - масштабный коэффициент. 
 
 Для нахождения $\rho_i$ был применён метод последовательных приближений. Блок-схема алгоритма, реализующего обратную проекцию, изображена  
 на рисунке  \ref{pic:newton_scheme}.  Сравнение изображений инструмента  калибровки и описанного алгоритма для центральной области изображения

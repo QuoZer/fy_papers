@@ -21,23 +21,26 @@
 \addimghere{projection_geometry}{0.5}{Схема проекции точки трёхмерного пространства в точку на изображении}{pic:fy_geom}
 
 Перспективная проекция, которая обычно используется в качестве модели ортоскопической камеры, не способна спроецировать широкоугольное пространство на кадр 
-конечного размера. Поэтому при описании и разработке fisheye-объективов опираются на другие виды проекций  \cite{projections}: 
-\begin{equation}
-    \label{fy1}
-r = 2 f tan(\theta/2),  
-\end{equation}
-\begin{equation}
-    \label{fy2}
-r = f \theta,
-\end{equation}
-\begin{equation}
-    \label{fy3}
-r = 2 f sin(\theta/2),
-\end{equation}
-\begin{equation}
-    \label{fy4}
-r = f sin(\theta),
-\end{equation}
+конечного размера. Поэтому при описании и разработке fisheye-объективов опираются на другие виды проекций  \cite{projections}:
+
+\begin{eqseries}
+    \begin{equation}
+        \label{fy1}
+    r = 2 f tan(\theta/2),  
+    \end{equation}
+    \begin{equation}
+        \label{fy2}
+    r = f \theta,
+    \end{equation}
+    \begin{equation}
+        \label{fy3}
+    r = 2 f sin(\theta/2),
+    \end{equation}
+    \begin{equation}
+        \label{fy4}
+    r = f sin(\theta).
+    \end{equation}
+\end{eqseries}    
 
 Но реальные линзы не всегда в точности следуют заданным моделям, к тому же отличия в используемых параметрах усложняют процесс калибровки камер. 
 По этой причине радиальные искажения выгоднее аппроксимировать многочленами \cite{opencv_model}, например, вида
@@ -47,25 +50,28 @@ r = f sin(\theta),
         \label{eqn:fisheye_distortion}
     \end{split}
 \end{equation}
-где $\delta r$ - радиальное отклонение от идеальной проекции луча;  $k_i$ - коэффициенты, описывающие внутренние параметры камеры. 
+
+где $\delta r$ - радиальное отклонение от идеальной проекции луча,
+      $k_i$ - коэффициенты, описывающие внутренние параметры камеры. 
 
 
 В настоящий момент есть несколько распространённых моделей, аппроксимирующих реальные искажения подобных объективов. Модель Канналы и 
 Брандта \cite{opencv_model} для линз с радиально симметричными искажениями реализована в OpenCV и выражает их через угол падения луча света на линзу, а не расстояние  \pdfmargincomment{https://stackoverflow.com/questions/31089265/what-are-the-main-references-to-the-fish-eye-camera-model-in-opencv3-0-0dev}
 от центра изображения до места падения, как это делалось в более ранних моделях. Авторы посчитали, что для описания типичных искажений достаточно 
 пяти членов полинома. Таким образом, указанную модель можно записать следующими уравнениями:
+\begin{eqseries}
+    \begin{equation}	
+        \delta r = k_1\theta + k_2\theta^3 + k_3\theta^5 + k_4\theta^7 + k_5\theta^9,
+        \label{eqn:kannala_r}
+    \end{equation}
+    \begin{equation}	
+        \begin{pmatrix}u\\v\end{pmatrix} = \delta r(\theta)\begin{pmatrix}cos(\phi)\\sin(\phi)\end{pmatrix},
+        %\delta r = k_1\theta + k_2\theta^3 + k_3\theta^5 + k_4\theta^7 + ... + k_n\theta^{n+1}
+        \label{eqn:kannala_uv}
+    \end{equation}
+\end{eqseries}
 
-\begin{equation}	
-    \delta r = k_1\theta + k_2\theta^3 + k_3\theta^5 + k_4\theta^7 + k_5\theta^9,
-    \label{eqn:kannala_r}
-\end{equation}
-
-\begin{equation}	
-    \begin{pmatrix}u\\v\end{pmatrix} = \delta r(\theta)\begin{pmatrix}cos(\phi)\\sin(\phi)\end{pmatrix},
-    %\delta r = k_1\theta + k_2\theta^3 + k_3\theta^5 + k_4\theta^7 + ... + k_n\theta^{n+1}
-    \label{eqn:kannala_uv}
-\end{equation}
-где $\theta$ - угол падения луча, определяемый выбранным типом проекции; $\phi$ - угол между горизонтом 
+\noindent где $\theta$ - угол падения луча, определяемый выбранным типом проекции; $\phi$ - угол между горизонтом 
 и проекцией падающего луча на плоскость изображения; $r = sqrt(x^2+y^2)$ - расстояние от спроектированной точки до центра
 изображения; $f$ - фокусное расстояние.
 
@@ -74,6 +80,7 @@ r = f sin(\theta),
 катадиоптрических камер, но оказалась также весьма пригодной и для fisheye-камер. 
 
 \begin{equation}
+    \vspace{12pt}
 \pi(\mathbf{x}, \mathbf{i})=\left[\begin{array}{l}
 	f_{x} \frac{x}{\alpha d+(1-\alpha) z} \\
 	f_{y} \frac{y}{\alpha d+(1-\alpha) z}
@@ -81,17 +88,21 @@ r = f sin(\theta),
 	c_{x} \\
 	c_{y}
 	\end{array}\right]
+    \vspace{12pt}
 \end{equation}
 
 Также большое распространение получила модель Скарамуззы \cite{scaramuzza}, которая легла в основу Matlab Omnidirectional 
 Camera Calibration Toolbox. Она связывает точки на изображении с соответствующей им точкой в координатах камеры
-следующим образом
+следующим образом:
+\vskip 12pt
 \begin{equation}	
     \begin{pmatrix}X_c\\Y_c\\Z_c\end{pmatrix} = \lambda \begin{pmatrix}u\\v\\a_0 + a_2 r^2 + a_3 r^3 + a_4 r^4\end{pmatrix},
     %\delta r = k_1\theta + k_2\theta^3 + k_3\theta^5 + k_4\theta^7 + ... + k_n\theta^{n+1}
-    \label{eqn:scaramuzza}
+    \label{eqn:scaramuzza} 
 \end{equation}
-где $a_0 ... a_4$ - коэффициенты, описывающие внутренние параметры камеры; $\lambda$ - масштабный коэффициент.
+\vskip 24pt
+
+\noindent где $a_0 ... a_4$ - коэффициенты, описывающие внутренние параметры камеры; $\lambda$ - масштабный коэффициент.
 
 % В качестве модели fisheye-камеры в этой работе принята именно модель Скарамуззы, так как она обладает точностью на уровне 
 % других \cite{double_sphere} и удобным инструментом оценки внутренних параметров камеры на основе MATLAB.
@@ -102,23 +113,20 @@ Camera Calibration Toolbox. Она связывает точки на изобр
 расстояние $\xi$, а затем в плоскость изображения камеры-обскуры, сдвинутой на $\frac{\alpha}{1-\alpha}$ относительно 
 центра второй сферы. Модель проекции представлена на рисунке \ref{pic:ds_model}. Таким образом радиальные искажения 
 можно описать всего двумя параметрами. Модель также интегрирована
-во многие популярные программы для калибровки камер (Basalt, Kalibr). Записывается она следующим образом
-
-\begin{equation}	
-    d_1 = sqrt(x^2+y^2+z^2), \\
-\end{equation}
-\begin{equation}	
-    d_2 = sqrt(x^2+y^2+(\\xi*d_1+z)^2 ), \\
-\end{equation}
-\begin{equation}	
-    \pi(\mathbf{x}, \mathbf{i}) = \begin{pmatrix}f_x * \frac{x}{\alpha*d_2+(1-\alpha)(\xi*d_1+z)} \\
-                                                 f_y * \frac{y}{\alpha*d_2+(1-\alpha)(\xi*d_1+z)} \end{pmatrix}.
-    %\delta r = k_1\theta + k_2\theta^3 + k_3\theta^5 + k_4\theta^7 + ... + k_n\theta^{n+1}
-    \label{eqn:ds}
-\end{equation}
-
+во многие популярные программы для калибровки камер (Basalt, Kalibr). Записывается она следующим образом:
+\begin{eqseries}
+    \begin{equation}	
+        d_1 = \sqrt{x^2+y^2+z^2}, 
+    \end{equation}
+    \begin{equation}	
+        d_2 = \sqrt{x^2+y^2+(\\xi*d_1+z)^2 }, 
+    \end{equation}
+    \begin{equation}	
+        \pi(\mathbf{x}, \mathbf{i}) = \begin{pmatrix}f_x * \frac{x}{\alpha*d_2+(1-\alpha)(\xi*d_1+z)} \\
+                                                    f_y * \frac{y}{\alpha*d_2+(1-\alpha)(\xi*d_1+z)} \end{pmatrix}.
+        %\delta r = k_1\theta + k_2\theta^3 + k_3\theta^5 + k_4\theta^7 + ... + k_n\theta^{n+1}
+        \label{eqn:ds}
+    \end{equation}
+\end{eqseries}
 \addimghere{double_sphere}{0.7}{Модель  двух сфер}{pic:ds_model}
 
-
-
- 

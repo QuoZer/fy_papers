@@ -30,6 +30,13 @@
 \usepackage{amssymb,amsfonts,amsmath} % Математика
 \numberwithin{equation}{section} % Формула вида секция.номер
 
+% \let\oldequation=\equation
+% \let\endoldequation=\endequation
+% \renewenvironment{equation}{\begin{oldequation}}{\end{oldequation}}
+\newenvironment{eqseries}
+{\vskip 0pt}
+{\vskip 24pt}
+
 \usepackage{enumerate} % Тонкая настройка списков
 \usepackage{indentfirst} % Красная строка после заголовка
 \usepackage{float} % Расширенное управление плавающими объектами
@@ -119,7 +126,21 @@
 \renewcommand{\cftsecfont}{\hspace{0pt}}            % Имена секций в содержании не жирным шрифтом
 \renewcommand\cftsecleader{\cftdotfill{\cftdotsep}} % Точки для секций в содержании
 \renewcommand\cftsecpagefont{\mdseries}             % Номера страниц не жирные
+% \renewcommand{\cftparskip}{0pt}
+\setlength{\cftbeforesecskip}{0pt}
+\setlength{\cftsecindent}{17.7mm}
+\setlength{\cftsubsecindent}{22.7mm}
 \setcounter{tocdepth}{3}        
+
+% Список иллюстративного материала
+\renewcommand{\cftloftitlefont}{\hspace{0.17\textwidth}\MakeTextUppercase}
+\renewcommand{\cftfigfont}{Рисунок }
+\addto\captionsrussian{\renewcommand\listfigurename{Список иллюстративного материала}}
+% Список табличного материала
+\renewcommand{\cftlottitlefont}{\hspace{0.2\textwidth}\MakeTextUppercase}
+\renewcommand{\cfttabfont}{Таблица }
+\addto\captionsrussian{\renewcommand\listtablename{Список табличного материала}}
+
 
 % GOST - biblatex
 \usepackage[% 
@@ -132,8 +153,8 @@ doi=false,
 % Формат подрисуночных надписей
 \RequirePackage{caption}
 \DeclareCaptionLabelSeparator{defffis}{ -- } % Разделитель
-\captionsetup[figure]{justification=centering, labelsep=defffis, format=plain, belowskip=-15pt} % Подпись рисунка по центру
-\captionsetup[table]{justification=raggedright, labelsep=defffis, format=plain, singlelinecheck=false} % Подпись таблицы слева
+\captionsetup[figure]{justification=centering, labelsep=defffis, format=plain, belowskip=-5pt, aboveskip=20pt, font={singlespacing}} % Подпись рисунка по центру
+\captionsetup[table]{justification=raggedright, labelsep=defffis, format=plain, belowskip=0pt, aboveskip=20pt, singlelinecheck=false} % Подпись таблицы слева
 \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}} % Имя фигуры
 
 % Пользовательские функции
@@ -148,7 +169,9 @@ doi=false,
     \begin{figure}[H]
         \centering
         \includegraphics[width=#2\linewidth]{#1}
+        % \medskip
         \caption{#3} \label{#4}
+        % \medskip
     \end{figure}
 }
 \newcommand{\addtwoimghere}[6]{ % Вставка двух рисунков
@@ -196,6 +219,25 @@ doi=false,
     \phantomsection % Корректный переход по ссылкам в содержании
     \paragraph{\centerline{{#1}}\vspace{0em}}
     \addcontentsline{toc}{section}{\uppercase{#1}}
+}
+
+% Секция для аннотации (она не включается в содержание)
+\newcommand{\annotation}[1]{
+    \paragraph{\centerline{{#1}}\vspace{1em}}
+}
+
+% Секция для списка иллюстративного материала
+\newcommand{\lof}{
+    \phantomsection
+    \listoffigures
+    \addcontentsline{toc}{section}{\listfigurename}
+}
+
+% Секция для списка табличного материала
+\newcommand{\lot}{
+    \phantomsection
+    \listoftables
+    \addcontentsline{toc}{section}{\listtablename}
 }
 
 % Секции для приложений
