@@ -15,9 +15,6 @@
 }
 % Русский язык
 \usepackage{polyglossia}
-\makeatletter
-\def\bbl@main@language{russian}
-\makeatother
 \setdefaultlanguage{russian}
 \setotherlanguage{english}
 
@@ -25,8 +22,8 @@
 \defaultfontfeatures{Ligatures=TeX}
 \setmainfont[Ligatures=TeX]{Times New Roman}
 \newfontfamily\cyrillicfont{Times New Roman}[Script=Cyrillic]
-\setsansfont{Liberation Sans} % Альтернатива нью роману, если его нет
-\setmonofont{FreeMono} % Моноширинный шрифт для оформления кода
+% \setsansfont{Liberation Sans} % Альтернатива нью роману, если его нет
+% \setmonofont{FreeMono} % Моноширинный шрифт для оформления кода
 \newfontfamily{\cyrillicfonttt}{FreeMono}
 
 
@@ -131,8 +128,8 @@
 \renewcommand\cftsecpagefont{\mdseries}             % Номера страниц не жирные
 % \renewcommand{\cftparskip}{0pt}
 \setlength{\cftbeforesecskip}{0pt}
-\setlength{\cftsecindent}{17.7mm}
-\setlength{\cftsubsecindent}{22.7mm}
+\setlength{\cftsecindent}{5mm}
+\setlength{\cftsubsecindent}{10mm}
 \setcounter{tocdepth}{3}        
 
 % Список иллюстративного материала
@@ -153,6 +150,7 @@
 % ]{biblatex}
 % \usepackage[style=gost2003.bst , backend=bibtex8]{biblatex}
 \bibliographystyle{gost2003}
+\renewcommand\refname{книги}
 % \addbibresource{refs.bib}
 % \bibliography{refs.bib}
 
@@ -224,7 +222,7 @@
 \newcommand{\anonsection}[1]{
     \phantomsection % Корректный переход по ссылкам в содержании
     \paragraph{\centerline{{#1}}\vspace{0em}}
-    \addcontentsline{toc}{section}{\uppercase{#1}}
+    \addcontentsline{toc}{section}{\hspace{-5mm}\uppercase{#1}}
 }
 
 % Секция для аннотации (она не включается в содержание)
