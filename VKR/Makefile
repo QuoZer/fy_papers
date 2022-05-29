@@ -6,9 +6,11 @@ pdf:
 	pdflatex main.tex
 
 texmk: 
-	latexmk -xelatex \
+	latexmk -bibtex -xelatex \
 	-synctex=1 main.tex
 
+bib:
+	bibtex8 -B -c utf8cyrillic.csf main.aux
 clean:
 	del -fr *.aux
 	del -fr *.bbl
