@@ -482,7 +482,7 @@ FUNCTION {bbl.nnumber} %  { "\bblNumber{}" }
 { curlanguage "english" =
    {"Number"}
    { curlanguage "ukrainian" = curlanguage "russian" = or
-      { "\CYRNомер" }
+      { "Номер" }
       { curlanguage "german" =
          {"{Heft}"} %%% { "Anzahl" }
          {"language is not defined: " language  "nnumber" * * warning$ "Number"}
@@ -747,7 +747,7 @@ FUNCTION {bbl.media.online}
    { "Electronic resource online" }
    { curlanguage "russian" =
       { "{электронный "
-        "ресурс онлаийн}" * }
+        "ресурс онлайн}" * }
       { curlanguage "ukrainian" =
         { "{электронный "
           "ресурс онлайн}" * }

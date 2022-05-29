@@ -33,7 +33,7 @@
 % \let\oldequation=\equation
 % \let\endoldequation=\endequation
 % \renewenvironment{equation}{\begin{oldequation}}{\end{oldequation}}
-\newenvironment{eqseries}
+\newenvironment{eqseries}  % Отступы вокруг серий уравнений
 {\vskip 0pt}
 {\vskip 24pt}
 
@@ -44,6 +44,9 @@
 \usepackage{adjustbox}
 \usepackage{lscape}
 \usepackage{rotating}
+% \usepackage{natbib}
+\usepackage{etoolbox}
+
 
 \usepackage{pdfcomment}     % тудущки и комменты
 \pdfcommentsetup{final} % set to 'final' to prevent all comments from showing up   draft
@@ -127,10 +130,10 @@
 \renewcommand\cftsecleader{\cftdotfill{\cftdotsep}} % Точки для секций в содержании
 \renewcommand\cftsecpagefont{\mdseries}             % Номера страниц не жирные
 % \renewcommand{\cftparskip}{0pt}
-\setlength{\cftbeforesecskip}{0pt}
-\setlength{\cftsecindent}{5mm}
-\setlength{\cftsubsecindent}{10mm}
-\setcounter{tocdepth}{3}        
+\setlength{\cftbeforesecskip}{0pt}      % межстрочный интервал
+\setlength{\cftsecindent}{5mm}          % второй уровень
+\setlength{\cftsubsecindent}{10mm}      % третий уровень
+\setcounter{tocdepth}{3}  
 
 % Список иллюстративного материала
 \renewcommand{\cftloftitlefont}{\hspace{0.17\textwidth}\MakeTextUppercase}
@@ -149,10 +152,10 @@
 % doi=false,  
 % ]{biblatex}
 % \usepackage[style=gost2003.bst , backend=bibtex8]{biblatex}
-\bibliographystyle{gost2003}
-\renewcommand\refname{книги}
-% \addbibresource{refs.bib}
-% \bibliography{refs.bib}
+\usepackage[numbers]{natbib}
+\bibliographystyle{gost2003}  % стиль библи
+
+\setlength{\bibhang}{0pt}  % отсутпы библиографии
 
 % Формат подрисуночных надписей
 \RequirePackage{caption}
@@ -248,7 +251,7 @@
 \newcommand{\appsection}[1]{
     \phantomsection
     \paragraph{\centerline{{#1}}}
-    \addcontentsline{toc}{section}{\uppercase{#1}}
+    \addcontentsline{toc}{section}{\hspace{-5mm}\uppercase{#1}}
 }
 
 % Библиография: отступы и межстрочный интервал
@@ -268,4 +271,4 @@
 %     }
 % \makeatother
 
-\setcounter{page}{4} % Начало нумерации страниц
+\setcounter{page}{6} % Начало нумерации страниц

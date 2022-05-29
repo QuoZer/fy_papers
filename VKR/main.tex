@@ -6,18 +6,23 @@
 
 \includepdf{include/titlepage}
 %\includepdf{pz} % Пояснительная записка
-%\includepdf[pages={1,2}]{task} % Задание на диплом 
-% \include{include/referat.tex}
+\includepdf{include/task} % Задание на диплом 
+\includepdf{include/referat}
 
+\setcounter{page}{0}
 \tableofcontents % Содержание 
+\thispagestyle{empty}
 \clearpage
+\setcounter{page}{6} % Начало нумерации страниц
 
 \anonsection{введение}
 \input{include/intro.tex}
 \section{Аналитический обзор систем стереозрения}
 \input{include/intro_existing_systems.tex}            % Обзор систем
+\input{include/system_intro.tex}      
 \input{include/intro_overview.tex}              % Обзор моделей камер
-%\input{include/intro_virtualmodeling.tex}       % Выбор ПО TODO: убрать? 
+\input{include/intro_virtualmodeling.tex}       % Выбор ПО  
+\vspace{\baselineskip}
 \input{include/intro_conclusion.tex}            % Выводы по разделу 
 
 \newpage
@@ -54,13 +59,22 @@
 
 \newpage
 \anonsection{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}
-% \printbibliography[heading=none] % печать библиографии , env=thebibliography  title={СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}, heading=bibintoc
-\bibliography{refs.bib} %test_bib.bib
+\renewcommand{\refname}{}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+\patchcmd{\thebibliography}{\addcontentsline{toc}{section}{\refname}}{}{}{}
+\patchcmd{\thebibliography}{\setlength\leftmargin{-70pt}}{}{}
 
+{\def\section*#1{}
+
+\bibliography{refs.bib} 
+}
 \newpage
 % Приложения
 \input{include/apps.tex}
  % Код скрипта
+
+% \lof
+% \lot
 
 \end{document} 
 %%% Конец документа
