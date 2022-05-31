@@ -20,26 +20,27 @@
 \section{Аналитический обзор систем стереозрения}
 \input{include/intro_existing_systems.tex}            % Обзор систем
 \input{include/system_intro.tex}      
-%\input{include/intro_overview.tex}              % Обзор моделей камер
-%\input{include/intro_virtualmodeling.tex}       % Выбор ПО  
 %\vspace{\baselineskip}
-\input{include/intro_conclusion.tex}            % Выводы по разделу 
+\input{include/intro_conclusion.tex}             % Выводы по разделу 
 
 \newpage
 \section{Система стереозрения}
 \input{include/system_description.tex}      % Описание системы: Какие этапы, элементы и тд
-\vspace{\baselineskip}
-%\input{include/system_unity_model.tex}      % Моделирование системы 
-% \input{include/system_code.tex}             % Про виртуальную камеру 
 \input{include/system_dewarping.tex}        % Как происходит выпрямление
 \input{include/system_conclusion.tex}       % Выводы по разделу
 
 \newpage
-\section{Исследование точности калибровочных моделей сверхширокоугольных объективов}
+\section{Моделирование системы}
+\input{include/intro_virtualmodeling.tex}       % Выбор ПО  
+\input{include/system_unity_model.tex}     % Моделирование системы 
+% \input{include/system_code.tex}           % Про виртуальную камеру 
+\input{include/intro_overview.tex}              % Обзор моделей камер
 \input{include/models_intro.tex}
-\vspace{\baselineskip}
 \input{include/models_experimet.tex}
 \input{include/models_conclusion.tex}
+
+% \newpage
+% \section{Исследование точности калибровочных моделей сверхширокоугольных объективов}
 
 \newpage
 \section{Экспериментальное исследование системы стереозрения}
@@ -62,10 +63,9 @@
 \renewcommand{\refname}{}
 \patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
 \patchcmd{\thebibliography}{\addcontentsline{toc}{section}{\refname}}{}{}{}
-\patchcmd{\thebibliography}{\setlength\leftmargin{-70pt}}{}{}
+\patchcmd{\thebibliography}{\begin{itemize}}{\begin{itemize}[leftmargin=30mm]}{}{}
 
 {\def\section*#1{}
-
 \bibliography{refs.bib} 
 }
 \newpage
