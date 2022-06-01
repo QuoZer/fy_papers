@@ -6,7 +6,7 @@
 
 \includepdf{include/titlepage}
 %\includepdf{pz} % Пояснительная записка
-\includepdf{include/task} % Задание на диплом 
+\includepdf[pages=1-2]{include/task} % Задание на диплом 
 \includepdf[pages=1-2]{include/referat}
 
 \setcounter{page}{0}
@@ -66,7 +66,9 @@
 \patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
 \patchcmd{\thebibliography}{\addcontentsline{toc}{section}{\refname}}{}{}{}
 \patchcmd{\thebibliography}{\begin{itemize}}{\begin{itemize}[leftmargin=30mm]}{}{}
-
+    \makeatletter
+    \renewcommand*{\@biblabel}[1]{\hfill#1}
+    \makeatother
 {\def\section*#1{}
 \bibliography{refs.bib} 
 }

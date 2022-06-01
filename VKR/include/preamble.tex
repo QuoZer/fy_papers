@@ -215,7 +215,7 @@
 
 % Оформление заголовков
 \usepackage[compact,explicit]{titlesec}
-\titleformat{\section}{\large\bfseries}{}{0mm}{\centering{\thesection\quad\textbf{#1}} }  % \titleformat{\section}{}{}{12.5mm}{\centering{\thesection\quad\MakeTextUppercase{#1}}\vspace{1.5em}}
+\titleformat{\section}{\large\bfseries}{}{12.5mm}{\thesection\quad\textbf{#1} }  % \titleformat{\section}{}{}{12.5mm}{\centering{\thesection\quad\MakeTextUppercase{#1}}\vspace{1.5em}}
 \titleformat{\subsection}[block]{\bfseries}{}{12.5mm}{\thesubsection\quad\textbf{#1}}          %
 \titleformat{\subsubsection}[block]{\vspace{1em}\normalsize}{}{12.5mm}{\thesubsubsection\quad#1\vspace{1em}}
 \titleformat{\paragraph}[block]{\normalsize}{}{12.5mm}{\MakeTextUppercase{#1}}
@@ -270,5 +270,12 @@
 %     \setlength{\itemsep}{0pt}
 %     }
 % \makeatother
+% Списки
+% \usepackage{enumitem}
+% \setlist[enumerate,itemize]{leftmargin=0pt,itemindent=2.5em} % Отступы в списках
+% \makeatletter
+%     \AddEnumerateCounter{\asbuk}{\@asbuk}{м)}
+% \makeatother
+% \setlist{nolistsep}
 
 \setcounter{page}{6} % Начало нумерации страниц
