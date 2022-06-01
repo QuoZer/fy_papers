@@ -1,10 +1,11 @@
 %%% Преамбула %%%
 
-\usepackage[cm-default]{fontspec} % XeTeX
+\usepackage{fontspec} % XeTeX
 \usepackage{xunicode} % Unicode для XeTeX
 \usepackage{xltxtra}  % Верхние и нижние индексы
 \usepackage{pdfpages} % Вставка PDF
 \usepackage{bm}
+\usepackage{rotating}
 
 \usepackage{listings} % Оформление исходного кода
 \lstset{
@@ -24,7 +25,7 @@
 \newfontfamily\cyrillicfont{Times New Roman}[Script=Cyrillic]
 % \setsansfont{Liberation Sans} % Альтернатива нью роману, если его нет
 % \setmonofont{FreeMono} % Моноширинный шрифт для оформления кода
-\newfontfamily{\cyrillicfonttt}{FreeMono}
+\newfontfamily{\cyrillicfonttt}{Times New Roman}
 
 
 \usepackage{amssymb,amsfonts,amsmath} % Математика
@@ -158,6 +159,7 @@
 \setlength{\bibhang}{0pt}  % отсутпы библиографии
 
 % Формат подрисуночных надписей
+\usepackage{caption}
 \RequirePackage{caption}
 \DeclareCaptionLabelSeparator{defffis}{ -- } % Разделитель
 \captionsetup[figure]{justification=centering, labelsep=defffis, format=plain, belowskip=-5pt, aboveskip=20pt, font={singlespacing}} % Подпись рисунка по центру
@@ -215,7 +217,7 @@
 
 % Оформление заголовков
 \usepackage[compact,explicit]{titlesec}
-\titleformat{\section}{\large\bfseries}{}{12.5mm}{\thesection\quad\textbf{#1} }  % \titleformat{\section}{}{}{12.5mm}{\centering{\thesection\quad\MakeTextUppercase{#1}}\vspace{1.5em}}
+\titleformat{\section}{\bfseries}{}{12.5mm}{\thesection\quad\textbf{#1} }  % \titleformat{\section}{}{}{12.5mm}{\centering{\thesection\quad\MakeTextUppercase{#1}}\vspace{1.5em}}
 \titleformat{\subsection}[block]{\bfseries}{}{12.5mm}{\thesubsection\quad\textbf{#1}}          %
 \titleformat{\subsubsection}[block]{\vspace{1em}\normalsize}{}{12.5mm}{\thesubsubsection\quad#1\vspace{1em}}
 \titleformat{\paragraph}[block]{\normalsize}{}{12.5mm}{\MakeTextUppercase{#1}}

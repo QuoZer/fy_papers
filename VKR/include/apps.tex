@@ -1,13 +1,19 @@
 \appsection{Приложение А} \hypertarget{app-a}{\label{app-a}}
+\renewcommand{\thesection}{А}
+\setcounter{table}{0}
+% \centering{Сравнение ПО для симуляции}
 
-\centering{Сравнение ПО для симуляции}
-
-
-    \begin{table}[h!]             % TODO: Сыровато. Надо дополнить. Проверить ГОСТовость подписи  FIXME: Таблица не умещается, но вращать не хочется. 
-        
-        %\caption{Сравнение ПО для симуляции }
+\begin{sideways}%
+    \setlength{\tabcolsep}{3pt}
+    \setlength{\belowcaptionskip}{2ex}
+    % \caption{Сравнение ПО для симуляции }
+    \begin{minipage}{1.12\textwidth}
+        \small
+        % Сравнение ПО для симуляции
         \label{tab:sims}
-        \rotatebox{90} {\begin{tabular}{|l|l|l|l|l|}
+        \captionof{table}{Сравнение ПО для симуляции}
+        \resizebox{18cm}{!}{
+        \begin{tabular}{|l|l|l|l|l|}
         \hline
         \textbf{Название} & \textbf{\begin{tabular}[c]{@{}l@{}}Симуляция \\ fisheye-камер\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Реалистичное \\ моделирование\end{tabular}} & \textbf{Интеграция кода}                                            & \textbf{Доступность}  \\ \hline
         Gazebo            & Возможна                                                                    & Возможно                                                                     & \begin{tabular}[c]{@{}l@{}}Возможна \\ посредством ROS\end{tabular} & Бесплатно               \\ \hline
@@ -17,9 +23,10 @@
         NVIDIA Isaac Sim  & Возможна                                                                    & Возможно                                                                       & Возможна                                                            & Бесплатно              \\ \hline
         CARLA             & Затруднена                                                                  & Возможно                                                                       & Возможна                                                            & Бесплатно              \\ \hline
         Unity             & Возможна                                                                    & Возможно                                                                       & Возможна                                                            & Бесплатно              \\ \hline
-        \end{tabular}}
+        \end{tabular}   }
+    \end{minipage}
+\end{sideways}
 
-    \end{table}
 \clearpage
 
 % \appsection{Приложение Б} \hypertarget{app-a}{\label{app-b}}

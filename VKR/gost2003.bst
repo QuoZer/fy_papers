@@ -721,7 +721,7 @@ if$}
 
 FUNCTION {bbl.media.text}
 { curlanguage "english" =
-   { "Text" }
+   { "" }
    { curlanguage "russian" = curlanguage "ukrainian" = or
       { "{Текст}" }
       { "language is not defined: " language "media" * * warning$ "Text" }
@@ -868,7 +868,7 @@ FUNCTION {format.names.rev}
             { t "others" =
           t "~others" =
           or
-                { " " * bbl.etal enclose.square.brackets * }
+                { " " * bbl.etal * } %enclose.square.brackets
                 { ", " * t * }
               if$
             }
@@ -1025,11 +1025,12 @@ FUNCTION {output.address.publisher}
 {
   address empty$
     {
-      bbl.nnoaddress
-      publisher empty$
-        { "~: " * bbl.nopublisher * enclose.square.brackets }
-        { enclose.square.brackets "~: " * publisher * }
-      if$
+      " "
+      % bbl.nnoaddress
+      % publisher empty$
+      %   { "~: " * bbl.nopublisher * enclose.square.brackets }
+      %   { enclose.square.brackets "~: " * publisher * }
+      % if$
     }
     {
       address output
@@ -1468,8 +1469,8 @@ FUNCTION {add.media}
 { duplicate$ empty$
     'skip$
     { media empty$
-        { " " * bbl.media.text enclose.square.brackets * }
-        { " " * bbl.media enclose.square.brackets * }
+        { " " * bbl.media.text enclose.square.brackets * }  %
+        { " " * bbl.media enclose.square.brackets * }       %
       if$
     }
   if$
@@ -2265,6 +2266,9 @@ ITERATE {forward.pass}
 
 FUNCTION {begin.bib}
 { "\begin{thebibliography}{"  longest.label  * "}" * write$ newline$
+  "\leftmargin\labelsep"                            write$ newline$
+  "\itemindent 16.7mm"                              write$ newline$
+  "\setlength{\itemsep}{0pt}"                        write$ newline$
   "\def\selectlanguageifdefined#1{"                  write$ newline$
   "\expandafter\ifx\csname date#1\endcsname\relax"   write$ newline$
   "\else\selectlanguage{#1}\fi}"                     write$ newline$
