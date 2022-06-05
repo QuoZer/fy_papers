@@ -6,6 +6,7 @@
 \usepackage{pdfpages} % Вставка PDF
 \usepackage{bm}
 \usepackage{rotating}
+\usepackage{lscape}
 
 \usepackage{listings} % Оформление исходного кода
 \lstset{
@@ -89,7 +90,7 @@
 % Отступы у страниц
 \usepackage{geometry}
 \geometry{left=3cm}
-\geometry{right=1.5cm}
+\geometry{right=1cm}
 \geometry{top=2cm}
 \geometry{bottom=2cm}
 
@@ -162,8 +163,8 @@
 \usepackage{caption}
 \RequirePackage{caption}
 \DeclareCaptionLabelSeparator{defffis}{ -- } % Разделитель
-\captionsetup[figure]{justification=centering, labelsep=defffis, format=plain, belowskip=-5pt, aboveskip=20pt, font={singlespacing}} % Подпись рисунка по центру
-\captionsetup[table]{justification=raggedright, labelsep=defffis, format=plain, belowskip=0pt, aboveskip=20pt, singlelinecheck=false} % Подпись таблицы слева
+\captionsetup[figure]{justification=centering, labelsep=defffis, format=plain, belowskip=-5pt, aboveskip=15pt, font={singlespacing}} % Подпись рисунка по центру
+\captionsetup[table]{justification=raggedright, labelsep=defffis, format=plain, belowskip=-5pt, aboveskip=20pt, singlelinecheck=false} % Подпись таблицы слева
 \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}} % Имя фигуры
 
 % Пользовательские функции
@@ -217,9 +218,9 @@
 
 % Оформление заголовков
 \usepackage[compact,explicit]{titlesec}
-\titleformat{\section}{\bfseries}{}{12.5mm}{\thesection\quad\textbf{#1} }  % \titleformat{\section}{}{}{12.5mm}{\centering{\thesection\quad\MakeTextUppercase{#1}}\vspace{1.5em}}
-\titleformat{\subsection}[block]{\bfseries}{}{12.5mm}{\thesubsection\quad\textbf{#1}}          %
-\titleformat{\subsubsection}[block]{\vspace{1em}\normalsize}{}{12.5mm}{\thesubsubsection\quad#1\vspace{1em}}
+\titleformat{\section}{\vspace{-0.5em}\bfseries}{}{12.5mm}{\thesection\quad\textbf{#1} }  % \titleformat{\section}{}{}{12.5mm}{\centering{\thesection\quad\MakeTextUppercase{#1}}\vspace{1.5em}}
+\titleformat{\subsection}[block]{\vspace{-0.5em}\bfseries}{}{12.5mm}{\thesubsection\quad\textbf{#1}\vspace{-0.5em}}          %
+\titleformat{\subsubsection}[block]{\vspace{-0.5em}\normalsize}{}{12.5mm}{\thesubsubsection\quad#1\vspace{-0.5em}}  %\vspace{-1.5em}
 \titleformat{\paragraph}[block]{\normalsize}{}{12.5mm}{\MakeTextUppercase{#1}}
 
 
@@ -257,21 +258,24 @@
 }
 
 % Библиография: отступы и межстрочный интервал
-% \makeatletter
-% \defbibenvironment{thebibliography}
-% {
-%     \list{\@biblabel{\@arabic\c@enumiv}}
-%         {\settowidth\labelwidth{\@biblabel{#1}}
-%         \leftmargin\labelsep
-%         \itemindent 16.7mm
-%         \@openbib@code
-%         \usecounter{enumiv}
-%         \let\p@enumiv\@empty
-%         \renewcommand\theenumiv{\@arabic\c@enumiv}}
-%         }
-%     \setlength{\itemsep}{0pt}
-%     }
-% \makeatother
+\makeatletter
+\renewenvironment{thebibliography}[1]
+    {\section*{\refname}
+        \list{\@biblabel{\@arabic\c@enumiv}}
+           {\settowidth\labelwidth{\@biblabel{#1}}
+            \leftmargin\labelsep
+            \itemindent 16.7mm
+            \setlength{\itemsep}{0pt}
+            \setlength{\parsep}{0pt}
+            \@openbib@code
+            \usecounter{enumiv}
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}
+        }
+        \itemsep 0pt
+        \setlength{\itemsep}{0pt}
+    }
+\makeatother
 % Списки
 % \usepackage{enumitem}
 % \setlist[enumerate,itemize]{leftmargin=0pt,itemindent=2.5em} % Отступы в списках

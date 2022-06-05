@@ -1,32 +1,41 @@
-\appsection{Приложение А} \hypertarget{app-a}{\label{app-a}}
+% \centering{Сравнение ПО для симуляции}
+\hypertarget{app-a}{\label{app-a}}
+\begin{landscape}
+\appsection{Приложение А} 
 \renewcommand{\thesection}{А}
 \setcounter{table}{0}
-% \centering{Сравнение ПО для симуляции}
 
-\begin{sideways}%
+% \begin{sideways}%
     \setlength{\tabcolsep}{3pt}
     \setlength{\belowcaptionskip}{2ex}
     % \caption{Сравнение ПО для симуляции }
-    \begin{minipage}{1.12\textwidth}
+    % \begin{minipage}{1.12\textwidth}
         \small
         % Сравнение ПО для симуляции
+        % \captionof{table}{}
+        % \resizebox{25cm}{!}{
+            % \begin{centering}
+    \begin{table}[h!]
+        \centering
+        \caption{Сравнение ПО для симуляции}
         \label{tab:sims}
-        \captionof{table}{Сравнение ПО для симуляции}
-        \resizebox{18cm}{!}{
-        \begin{tabular}{|l|l|l|l|l|}
+        \begin{tabular}{|c|c|c|c|c|}
         \hline
-        \textbf{Название} & \textbf{\begin{tabular}[c]{@{}l@{}}Симуляция \\ fisheye-камер\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Реалистичное \\ моделирование\end{tabular}} & \textbf{Интеграция кода}                                            & \textbf{Доступность}  \\ \hline
-        Gazebo            & Возможна                                                                    & Возможно                                                                     & \begin{tabular}[c]{@{}l@{}}Возможна \\ посредством ROS\end{tabular} & Бесплатно               \\ \hline
+        \multicolumn{1}{|c|}{ \textbf{Название} } & \textbf{\begin{tabular}[c]{@{}l@{}}Симуляция \\ fisheye-камер\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Реалистичное \\ моделирование\end{tabular}} & \multicolumn{1}{|c|}{\textbf{Интеграция кода}}                                            & \textbf{Доступность}  \\ \hline
+        Gazebo            & Возможна                                                                    & Возможно                                                                     & Возможна посредством ROS & Бесплатно               \\ \hline
         RoboDK            & Нет                                                                         & Затруднено                                                                     & Нет                                                                 & От 145€                \\ \hline
         Webots            & Затруднена                                                                  & Возможно                                                                       & Возможна                                                            & Бесплатно              \\ \hline
         CoppeliaSim       & Затруднена                                                                  & Затруднено                                                                     & Возможна                                                            & Бесплатно              \\ \hline
         NVIDIA Isaac Sim  & Возможна                                                                    & Возможно                                                                       & Возможна                                                            & Бесплатно              \\ \hline
         CARLA             & Затруднена                                                                  & Возможно                                                                       & Возможна                                                            & Бесплатно              \\ \hline
         Unity             & Возможна                                                                    & Возможно                                                                       & Возможна                                                            & Бесплатно              \\ \hline
-        \end{tabular}   }
-    \end{minipage}
-\end{sideways}
+        \end{tabular}   %}
+    \end{table}
+    % \end{centering}
+    % \end{minipage}
+% \end{sideways}
 
+\end{landscape}
 \clearpage
 
 % \appsection{Приложение Б} \hypertarget{app-a}{\label{app-b}}

@@ -747,7 +747,7 @@ FUNCTION {bbl.media.online}
    { "Electronic resource online" }
    { curlanguage "russian" =
       { "{электронный "
-        "ресурс онлайн}" * }
+        "ресурс}" * }
       { curlanguage "ukrainian" =
         { "{электронный "
           "ресурс онлайн}" * }
@@ -2266,8 +2266,6 @@ ITERATE {forward.pass}
 
 FUNCTION {begin.bib}
 { "\begin{thebibliography}{"  longest.label  * "}" * write$ newline$
-  "\leftmargin\labelsep"                            write$ newline$
-  "\itemindent 16.7mm"                              write$ newline$
   "\setlength{\itemsep}{0pt}"                        write$ newline$
   "\def\selectlanguageifdefined#1{"                  write$ newline$
   "\expandafter\ifx\csname date#1\endcsname\relax"   write$ newline$

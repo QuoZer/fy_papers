@@ -1,4 +1,4 @@
-\documentclass[draft,a4paper,14pt]{extarticle} % 14й шрифт
+\documentclass[a4paper,14pt]{extarticle} % 14й шрифт
 \input{include/preamble} % Подключаем преамбулу
 
 %%% Начало документа
@@ -15,7 +15,7 @@
 \hyphenchar\font=`\- % reset hyphen
 \thispagestyle{empty}
 \clearpage
-\setcounter{page}{6} % Начало нумерации страниц
+\setcounter{page}{7} % Начало нумерации страниц
 
 \anonsection{введение}
 \input{include/intro.tex}
@@ -51,10 +51,6 @@
 \input{include/tests_surround.tex}
 \vspace{\baselineskip}
 \input{include/tests_conclusion.tex}
-% \input{include/experiments_intro.tex}       % План экспериментов
-% \input{include/experiments_pic.tex}         % Сравнение картинок
-% \input{include/experiments_ptc.tex}         % Оценка равномерности поинтклауда стены
-% \input{include/experiments_conclusion.tex}  % Выводы по разделу
 
 \newpage
 \anonsection{Заключение}
@@ -69,6 +65,7 @@
     \makeatletter
     \renewcommand*{\@biblabel}[1]{\hfill#1}
     \makeatother
+% \setlength{\leftmargin}{0mm}    
 {\def\section*#1{}
 \bibliography{refs.bib} 
 }
